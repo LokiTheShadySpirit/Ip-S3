@@ -1,0 +1,37 @@
+name: .NET Core CI
+
+on:
+  push:
+    branches: [ master ]
+    paths-ignore:
+      - '**.gitignore'
+      - '**/README.md'
+      - '**.dockerignore'
+
+  pull_request:
+    branches: [ master ]
+    paths-ignore:
+      - '**.gitignore'
+      - '**/README.md'
+      - '**.dockerignore'
+jobs:
+  build:
+
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./Plansysteem_BackEnd
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.100
+    - name: Install dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build
+    - name: Test
+      run: dotnet test
