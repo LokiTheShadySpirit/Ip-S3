@@ -1,0 +1,14 @@
+C:\Users\Barth\Desktop\School\Semester 3\Individueel Project\Individueel-Project-Semester-3\Plansysteem_BackEnd\Plansysteem_BackEnd_Logic\bin\Debug\netcoreapp3.1\Plansysteem_BackEnd_Logic.deps.json
+C:\Users\Barth\Desktop\School\Semester 3\Individueel Project\Individueel-Project-Semester-3\Plansysteem_BackEnd\Plansysteem_BackEnd_Logic\bin\Debug\netcoreapp3.1\Plansysteem_BackEnd_Logic.dll
+C:\Users\Barth\Desktop\School\Semester 3\Individueel Project\Individueel-Project-Semester-3\Plansysteem_BackEnd\Plansysteem_BackEnd_Logic\bin\Debug\netcoreapp3.1\Plansysteem_BackEnd_Logic.pdb
+C:\Users\Barth\Desktop\School\Semester 3\Individueel Project\Individueel-Project-Semester-3\Plansysteem_BackEnd\Plansysteem_BackEnd_Logic\bin\Debug\netcoreapp3.1\Plansysteem_BackEnd_DalInterfaces.dll
+C:\Users\Barth\Desktop\School\Semester 3\Individueel Project\Individueel-Project-Semester-3\Plansysteem_BackEnd\Plansysteem_BackEnd_Logic\bin\Debug\netcoreapp3.1\Plansysteem_BackEnd_LogicInterfaces.dll
+C:\Users\Barth\Desktop\School\Semester 3\Individueel Project\Individueel-Project-Semester-3\Plansysteem_BackEnd\Plansysteem_BackEnd_Logic\bin\Debug\netcoreapp3.1\Plansysteem_BackEnd_DalInterfaces.pdb
+C:\Users\Barth\Desktop\School\Semester 3\Individueel Project\Individueel-Project-Semester-3\Plansysteem_BackEnd\Plansysteem_BackEnd_Logic\bin\Debug\netcoreapp3.1\Plansysteem_BackEnd_LogicInterfaces.pdb
+C:\Users\Barth\Desktop\School\Semester 3\Individueel Project\Individueel-Project-Semester-3\Plansysteem_BackEnd\Plansysteem_BackEnd_Logic\obj\Debug\netcoreapp3.1\Plansysteem_BackEnd_Logic.csproj.AssemblyReference.cache
+C:\Users\Barth\Desktop\School\Semester 3\Individueel Project\Individueel-Project-Semester-3\Plansysteem_BackEnd\Plansysteem_BackEnd_Logic\obj\Debug\netcoreapp3.1\Plansysteem_BackEnd_Logic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Barth\Desktop\School\Semester 3\Individueel Project\Individueel-Project-Semester-3\Plansysteem_BackEnd\Plansysteem_BackEnd_Logic\obj\Debug\netcoreapp3.1\Plansysteem_BackEnd_Logic.AssemblyInfoInputs.cache
+C:\Users\Barth\Desktop\School\Semester 3\Individueel Project\Individueel-Project-Semester-3\Plansysteem_BackEnd\Plansysteem_BackEnd_Logic\obj\Debug\netcoreapp3.1\Plansysteem_BackEnd_Logic.AssemblyInfo.cs
+C:\Users\Barth\Desktop\School\Semester 3\Individueel Project\Individueel-Project-Semester-3\Plansysteem_BackEnd\Plansysteem_BackEnd_Logic\obj\Debug\netcoreapp3.1\Plansysteem_BackEnd_Logic.csproj.CoreCompileInputs.cache
+C:\Users\Barth\Desktop\School\Semester 3\Individueel Project\Individueel-Project-Semester-3\Plansysteem_BackEnd\Plansysteem_BackEnd_Logic\obj\Debug\netcoreapp3.1\Plansysteem_BackEnd_Logic.dll
+C:\Users\Barth\Desktop\School\Semester 3\Individueel Project\Individueel-Project-Semester-3\Plansysteem_BackEnd\Plansysteem_BackEnd_Logic\obj\Debug\netcoreapp3.1\Plansysteem_BackEnd_Logic.pdb

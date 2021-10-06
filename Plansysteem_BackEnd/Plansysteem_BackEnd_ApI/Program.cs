@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Plansysteem_BackEnd_ApI
+namespace Plansysteem_BackEnd_Api
 {
     public class Program
     {

@@ -3,23 +3,23 @@
 #Depending on the operating system of the host machines(s) that will build or run the containers, the image specified in the FROM statement may need to be changed.
 #For more information, please see https://aka.ms/containercompat
 
-FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
+FROM mcr.microsoft.com/dotnet/aspnet:3.1 AS base
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 WORKDIR /src
-COPY ["Plansysteem_BackEnd_ApI/Plansysteem_BackEnd_ApI.csproj", "Plansysteem_BackEnd_ApI/"]
-RUN dotnet restore "Plansysteem_BackEnd_ApI/Plansysteem_BackEnd_ApI.csproj"
+COPY ["Plansysteem_BackEnd_Api/Plansysteem_BackEnd_Api.csproj", "Plansysteem_BackEnd_Api/"]
+RUN dotnet restore "Plansysteem_BackEnd_Api/Plansysteem_BackEnd_Api.csproj"
 COPY . .
-WORKDIR "/src/Plansysteem_BackEnd_ApI"
-RUN dotnet build "Plansysteem_BackEnd_ApI.csproj" -c Release -o /app/build
+WORKDIR "/src/Plansysteem_BackEnd_Api"
+RUN dotnet build "Plansysteem_BackEnd_Api.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "Plansysteem_BackEnd_ApI.csproj" -c Release -o /app/publish
+RUN dotnet publish "Plansysteem_BackEnd_Api.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Plansysteem_BackEnd_ApI.dll"]
+ENTRYPOINT ["dotnet", "Plansysteem_BackEnd_Api.dll"]

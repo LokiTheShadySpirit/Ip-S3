@@ -1,11 +1,46 @@
 {
   "version": 3,
   "targets": {
-    "net5.0": {}
+    ".NETCoreApp,Version=v3.1": {
+      "Plansysteem_BackEnd_DalInterfaces/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/Plansysteem_BackEnd_DalInterfaces.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Plansysteem_BackEnd_DalInterfaces.dll": {}
+        }
+      },
+      "Plansysteem_BackEnd_LogicInterfaces/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/Plansysteem_BackEnd_LogicInterfaces.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Plansysteem_BackEnd_LogicInterfaces.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Plansysteem_BackEnd_DalInterfaces/1.0.0": {
+      "type": "project",
+      "path": "../Plansysteem_BackEnd_DalInterfaces/Plansysteem_BackEnd_DalInterfaces.csproj",
+      "msbuildProject": "../Plansysteem_BackEnd_DalInterfaces/Plansysteem_BackEnd_DalInterfaces.csproj"
+    },
+    "Plansysteem_BackEnd_LogicInterfaces/1.0.0": {
+      "type": "project",
+      "path": "../Plansysteem_BackEnd_LogicInterfaces/Plansysteem_BackEnd_LogicInterfaces.csproj",
+      "msbuildProject": "../Plansysteem_BackEnd_LogicInterfaces/Plansysteem_BackEnd_LogicInterfaces.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net5.0": []
+    ".NETCoreApp,Version=v3.1": [
+      "Plansysteem_BackEnd_DalInterfaces >= 1.0.0",
+      "Plansysteem_BackEnd_LogicInterfaces >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Barth\\.nuget\\packages\\": {}
@@ -24,16 +59,23 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net5.0"
+        "netcoreapp3.1"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
-          "projectReferences": {}
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "projectReferences": {
+            "C:\\Users\\Barth\\Desktop\\School\\Semester 3\\Individueel Project\\Individueel-Project-Semester-3\\Plansysteem_BackEnd\\Plansysteem_BackEnd_DalInterfaces\\Plansysteem_BackEnd_DalInterfaces.csproj": {
+              "projectPath": "C:\\Users\\Barth\\Desktop\\School\\Semester 3\\Individueel Project\\Individueel-Project-Semester-3\\Plansysteem_BackEnd\\Plansysteem_BackEnd_DalInterfaces\\Plansysteem_BackEnd_DalInterfaces.csproj"
+            },
+            "C:\\Users\\Barth\\Desktop\\School\\Semester 3\\Individueel Project\\Individueel-Project-Semester-3\\Plansysteem_BackEnd\\Plansysteem_BackEnd_LogicInterfaces\\Plansysteem_BackEnd_LogicInterfaces.csproj": {
+              "projectPath": "C:\\Users\\Barth\\Desktop\\School\\Semester 3\\Individueel Project\\Individueel-Project-Semester-3\\Plansysteem_BackEnd\\Plansysteem_BackEnd_LogicInterfaces\\Plansysteem_BackEnd_LogicInterfaces.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -43,8 +85,8 @@
       }
     },
     "frameworks": {
-      "net5.0": {
-        "targetAlias": "net5.0",
+      "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "imports": [
           "net461",
           "net462",
@@ -60,7 +102,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
