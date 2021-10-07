@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "90zvs+UuNX8t3Z+i9gQG4BCqlun04k76achDl2tCsB8V93y/EfgPnQiTn+/Nadd3aqCXGDhD+ngYL6LOsxufMg==",
+  "dgSpecHash": "5CB5VfQ38ld5KWt3hqZQDkVLhNNZt6F9w2AcOpHIHzPZa6WA5G1o+WBKzdOS8/IR6C0ugq3EvrU2NtzaSTL7xg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Barth\\Desktop\\School\\Semester 3\\Individueel Project\\Individueel-Project-Semester-3\\Plansysteem_BackEnd\\Plansysteem_BackEnd_Api\\Plansysteem_BackEnd_Api.csproj",
   "expectedPackageFiles": [
@@ -11,7 +11,6 @@
     "C:\\Users\\Barth\\.nuget\\packages\\k4os.hash.xxhash\\1.0.6\\k4os.hash.xxhash.1.0.6.nupkg.sha512",
     "C:\\Users\\Barth\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\5.0.0\\microsoft.bcl.asyncinterfaces.5.0.0.nupkg.sha512",
     "C:\\Users\\Barth\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
-    "C:\\Users\\Barth\\.nuget\\packages\\microsoft.typescript.msbuild\\4.4.2\\microsoft.typescript.msbuild.4.4.2.nupkg.sha512",
     "C:\\Users\\Barth\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.11.1\\microsoft.visualstudio.azure.containers.tools.targets.1.11.1.nupkg.sha512",
     "C:\\Users\\Barth\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\Barth\\.nuget\\packages\\mysql.data\\8.0.26\\mysql.data.8.0.26.nupkg.sha512",
