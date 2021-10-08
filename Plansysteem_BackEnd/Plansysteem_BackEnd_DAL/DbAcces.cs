@@ -7,7 +7,7 @@ namespace Plansysteem_BackEnd_DAL
     {
         public static MySqlConnection Conn = new MySqlConnection()
         {
-            ConnectionString = "Server=localhost;Uid=root;Pwd=root;Database=plansystem;"
+            ConnectionString = "Server=localhost;Uid=root;Pwd=root;Database=plansystem;SSL Mode=None"
         };
     }
 }

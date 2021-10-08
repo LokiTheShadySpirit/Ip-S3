@@ -12,3 +12,4 @@ C:\Users\Barth\Desktop\School\Semester 3\Individueel Project\Individueel-Project
 C:\Users\Barth\Desktop\School\Semester 3\Individueel Project\Individueel-Project-Semester-3\Plansysteem_BackEnd\Plansysteem_BackEnd_Logic\obj\Debug\netcoreapp3.1\Plansysteem_BackEnd_Logic.csproj.CoreCompileInputs.cache
 C:\Users\Barth\Desktop\School\Semester 3\Individueel Project\Individueel-Project-Semester-3\Plansysteem_BackEnd\Plansysteem_BackEnd_Logic\obj\Debug\netcoreapp3.1\Plansysteem_BackEnd_Logic.dll
 C:\Users\Barth\Desktop\School\Semester 3\Individueel Project\Individueel-Project-Semester-3\Plansysteem_BackEnd\Plansysteem_BackEnd_Logic\obj\Debug\netcoreapp3.1\Plansysteem_BackEnd_Logic.pdb
+C:\Users\Barth\Desktop\School\Semester 3\Individueel Project\Individueel-Project-Semester-3\Plansysteem_BackEnd\Plansysteem_BackEnd_Logic\obj\Debug\netcoreapp3.1\Plansysteem_BackEnd_Logic.csproj.CopyComplete
