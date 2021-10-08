@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Serialization;
 
 using Plansysteem_BackEnd_DAL.DatabaseClasses;
 using Plansysteem_BackEnd_DalInterfaces.Interfaces;
@@ -30,8 +31,6 @@ namespace Plansysteem_BackEnd_Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages();
-
             //interface to Data
             services.AddSingleton<ITaskDal, TaskDatabaseClass>();
 
@@ -40,11 +39,28 @@ namespace Plansysteem_BackEnd_Api
 
             //interface to Logic
             services.AddSingleton<ITaskContainer, TaskContainer>();
+
+            //Enable CORS
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            });
+
+            //JSON Serializer
+            services.AddControllersWithViews().AddNewtonsoftJson(options =>
+                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
+                .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver
+                    = new DefaultContractResolver());
+
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            //Enable CORS
+            app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -65,7 +81,9 @@ namespace Plansysteem_BackEnd_Api
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapRazorPages();
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller}/{action}/{id?}");
             });
         }
     }
