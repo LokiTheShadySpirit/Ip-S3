@@ -1,11 +1,17 @@
-function TasksList({Tasks}){
-    return(
-        <div>
-            {Tasks.map((task) => (
-                <h3 key = {task.TaskId}>{task.TaskName}</h3>
-            ))}
+import TaskCard from "./TaskCard";
+
+import './Taskslist.css';
+
+function TasksList({ Tasks }) {
+  return (
+    <div className="row">
+      {Tasks.map((task) => (
+        <div className="column">
+          <TaskCard key={task.TaskId} task={task} />
         </div>
-    )
+      ))}
+    </div>
+  );
 }
 
-export default TasksList
+export default TasksList;

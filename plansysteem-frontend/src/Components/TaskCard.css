@@ -1,0 +1,20 @@
+* {
+  box-sizing: border-box;
+}
+
+.card {
+  max-width: calc(12.5rem + 13vw);
+
+  background: gray;
+
+  border-color: black;
+  border-width: 10px;
+  border-radius: 0.75em;
+
+  padding-left: 10px;
+  padding-bottom: 5px;
+}
+
+.tasktitle {
+  text-align: center;
+}

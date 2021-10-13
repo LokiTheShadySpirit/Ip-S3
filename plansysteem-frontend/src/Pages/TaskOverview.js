@@ -4,27 +4,27 @@ import axios from "axios";
 
 import TasksList from "../Components/Taskslist";
 
-function TaskOverview(){
-    const [tasks, setTasks] = useState([])
+function TaskOverview() {
+  const [tasks, setTasks] = useState([]);
 
-    async function getAllTasks(){
-        const apirequest = await axios.get(Variables.APiUrl)
-        return apirequest.data;
-    }
+  async function getAllTasks() {
+    const apirequest = await axios.get(Variables.APiUrl);
+    return apirequest.data;
+  }
 
-     async function getTasks(){
-         setTasks(await getAllTasks())
-     }
+  async function getTasks() {
+    setTasks(await getAllTasks());
+  }
 
-    useEffect(() => {
-        getTasks()
-    }, )
+  useEffect(() => {
+    getTasks();
+  });
 
-    return(
-        <div>
-            <TasksList Tasks = {tasks} />
-        </div>
-    )
+  return (
+    <div>
+      <TasksList Tasks={tasks} />
+    </div>
+  );
 }
 
-export default TaskOverview
+export default TaskOverview;
