@@ -14,6 +14,10 @@ on:
       - '**.gitignore'
       - '**/README.md'
       - '**.dockerignore'
+      
+  workflow_dispatch:
+    
+    
 jobs:
   build:
 
