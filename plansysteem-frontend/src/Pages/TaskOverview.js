@@ -8,7 +8,8 @@ function TaskOverview() {
   const [tasks, setTasks] = useState([]);
 
   async function getAllTasks() {
-    const apirequest = await axios.get(Variables.APiUrl);
+    const apirequest = await axios.get(Variables.TaskOverviewGetTasksUrl);
+    console.log(apirequest.data)
     return apirequest.data;
   }
 
