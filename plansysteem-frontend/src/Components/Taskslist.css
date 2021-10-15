@@ -16,6 +16,7 @@
     display: table;
 }
 
+/* Column width respons to screen with */
 @media screen and (max-width: 600px) {
     .column{
         width: 100%;
