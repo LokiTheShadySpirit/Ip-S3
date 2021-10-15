@@ -1,0 +1,13 @@
+.button{
+    display: inline-block;
+
+    max-width: calc(12.5rem + 13vw);
+
+    background: green;
+
+    border-width: 10px;
+    border-radius: 0.75em;
+  
+    padding-left: 10px;
+    padding-bottom: 5px;
+}

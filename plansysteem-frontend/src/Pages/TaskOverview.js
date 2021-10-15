@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 import TasksList from "../Components/Taskslist";
+import NewTaskButton from "../Components/NewTaskButton";
 
 function TaskOverview() {
   const [tasks, setTasks] = useState([]);
@@ -17,6 +18,11 @@ function TaskOverview() {
     setTasks(await getAllTasks());
   }
 
+  async function createNewTask(newtaskname){
+    axios.post(Variables.TaskOverviewCreateTaskUrl, {...newtaskname})
+    .then(getTasks)
+  }
+
   useEffect(() => {
     getTasks();
   });
@@ -24,6 +30,7 @@ function TaskOverview() {
   return (
     <div>
       <TasksList Tasks={tasks} />
+      <NewTaskButton />
     </div>
   );
 }

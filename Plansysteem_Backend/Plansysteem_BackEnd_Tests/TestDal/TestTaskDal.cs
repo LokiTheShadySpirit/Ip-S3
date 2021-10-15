@@ -30,5 +30,11 @@ namespace Plansysteem_BackEnd_Tests.TestDal
         {
             return _taskDtos;
         }
+
+        public void CreateTask(TaskDto newtask)
+        {
+            newtask.TaskId = _nextid;
+            _taskDtos.Add(newtask);
+        }
     }
 }

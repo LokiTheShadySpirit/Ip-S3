@@ -86,7 +86,7 @@ namespace Plansysteem_BackEnd_Api
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
+            app.UseEndpoints(endpoints=>
             {
                 endpoints.MapControllers();
             });

@@ -32,5 +32,10 @@ namespace Plansysteem_BackEnd_Logic
 
             return TaskConverter.MakeTaskModelList(_allTasks);
         }
+
+        public void CreateNewTask(TaskModel newtask)
+        {
+            _taskDal.CreateTask(TaskConverter.MakeDtoFromModel(newtask));
+        }
     }
 }

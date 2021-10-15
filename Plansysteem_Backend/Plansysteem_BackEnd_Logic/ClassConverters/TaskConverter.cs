@@ -30,5 +30,22 @@ namespace Plansysteem_BackEnd_Logic.ClassConverters
                 TaskName = task.TaskName
             };
         }
+
+        public static TaskDto MakeDtoFromModel(TaskModel taskmodel)
+        {
+            if (taskmodel.TaskId !=  null || taskmodel.TaskId != 0)
+            {
+                return new TaskDto
+                {
+                    TaskId = taskmodel.TaskId,
+                    TaskName = taskmodel.TaskName
+                };
+            }
+
+            return new TaskDto
+            {
+                TaskName = taskmodel.TaskName
+            };
+        }
     }
 }

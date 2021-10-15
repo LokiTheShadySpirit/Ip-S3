@@ -8,5 +8,6 @@ namespace Plansysteem_BackEnd_DalInterfaces.Interfaces
     public interface ITaskDal
     {
         public List<TaskDto> ReadAllTasks();
+        public void CreateTask(TaskDto newtask);
     }
 }
