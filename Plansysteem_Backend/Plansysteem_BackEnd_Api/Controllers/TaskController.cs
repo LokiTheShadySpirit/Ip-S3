@@ -11,20 +11,18 @@ using Plansysteem_BackEnd_LogicInterfaces.Models;
 
 namespace Plansysteem_BackEnd_Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class TaskController : ControllerBase
     {
-        private readonly IConfiguration _configuration;
         private readonly ITaskContainer _taskContainer;
 
-        public TaskController(IConfiguration configuration, ITaskContainer taskContainer)
+        public TaskController(ITaskContainer taskContainer)
         {
-            _configuration = configuration;
             _taskContainer = taskContainer;
         }
 
-        [Route("/")]
+        [Route("TaskOverview")]
         [HttpGet]
         public JsonResult GetAll()
         {
