@@ -7,7 +7,7 @@ function TasksList({ Tasks }) {
     <div className="row">
       {Tasks.map((task) => (
         <div className="column">
-          <TaskCard key={task.TaskId} task={task} />
+          <TaskCard key={task.taskId} task={task} />
         </div>
       ))}
     </div>

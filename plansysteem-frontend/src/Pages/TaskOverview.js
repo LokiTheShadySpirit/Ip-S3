@@ -3,17 +3,24 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 import TasksList from "../Components/Taskslist";
+import NewTaskButton from "../Components/NewTaskButton";
 
 function TaskOverview() {
   const [tasks, setTasks] = useState([]);
 
   async function getAllTasks() {
-    const apirequest = await axios.get(Variables.APiUrl);
+    const apirequest = await axios.get(Variables.TaskOverviewGetTasksUrl);
+    console.log(apirequest.data)
     return apirequest.data;
   }
 
   async function getTasks() {
     setTasks(await getAllTasks());
+  }
+
+  async function createNewTask(newtaskname){
+    axios.post(Variables.TaskOverviewCreateTaskUrl, {...newtaskname})
+    .then(getTasks)
   }
 
   useEffect(() => {
@@ -23,6 +30,7 @@ function TaskOverview() {
   return (
     <div>
       <TasksList Tasks={tasks} />
+      <NewTaskButton />
     </div>
   );
 }

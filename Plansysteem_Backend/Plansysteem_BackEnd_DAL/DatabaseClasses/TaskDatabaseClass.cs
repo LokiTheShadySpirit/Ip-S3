@@ -11,6 +11,22 @@ namespace Plansysteem_BackEnd_DAL.DatabaseClasses
     {
         private readonly MySqlConnection _conn = DbAcces.Conn;
 
+        public void CreateTask(TaskDto newtask)
+        {
+            using (_conn)
+            {
+                _conn.Open();
+                using (MySqlCommand command = new MySqlCommand(
+                    "INSERT INTO task (TaskName) VALUES(@TaskName)", _conn))
+                {
+                    command.Parameters.AddWithValue("@TaskName", newtask.TaskName);
+
+                    command.ExecuteNonQuery();
+                }
+                _conn.Close();
+            }
+        }
+
         public List<TaskDto> ReadAllTasks()
         {
             List<TaskDto> allTasks = new List<TaskDto>();

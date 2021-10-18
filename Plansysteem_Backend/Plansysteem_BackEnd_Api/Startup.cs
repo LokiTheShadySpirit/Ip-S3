@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Serialization;
+using Microsoft.OpenApi.Models;
 
 using Plansysteem_BackEnd_DAL.DatabaseClasses;
 using Plansysteem_BackEnd_DalInterfaces.Interfaces;
@@ -46,13 +47,17 @@ namespace Plansysteem_BackEnd_Api
                 c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             });
 
-            //JSON Serializer
-            services.AddControllersWithViews().AddNewtonsoftJson(options =>
-                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
-                .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver
-                    = new DefaultContractResolver());
+            ////JSON Serializer
+            //services.AddControllersWithViews().AddNewtonsoftJson(options =>
+            //        options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
+            //    .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver
+            //        = new DefaultContractResolver());
 
             services.AddControllers();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo{ Title = "Plansysteem_Api", Version = "vi"});
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -64,6 +69,8 @@ namespace Plansysteem_BackEnd_Api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Plansysteem_Api v1"));
             }
             else
             {
@@ -79,11 +86,9 @@ namespace Plansysteem_BackEnd_Api
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
+            app.UseEndpoints(endpoints=>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller}/{action}/{id?}");
+                endpoints.MapControllers();
             });
         }
     }
