@@ -7,30 +7,55 @@ import NewTaskButton from "../Components/NewTaskButton";
 
 function TaskOverview() {
   const [tasks, setTasks] = useState([]);
+  const [newTaskName , setNewTaskName] = useState("");
+  const [alert, setAlert] = useState(false);
 
   async function getAllTasks() {
     const apirequest = await axios.get(Variables.TaskOverviewGetTasksUrl);
-    console.log(apirequest.data)
     return apirequest.data;
   }
 
-  async function getTasks() {
-    setTasks(await getAllTasks());
-  }
+  const postTask = (e) =>{
+    e.preventDefault();
+    let name = "Default Task Name"
 
-  async function createNewTask(newtaskname){
-    axios.post(Variables.TaskOverviewCreateTaskUrl, {...newtaskname})
-    .then(getTasks)
+    if (newTaskName !== ""){
+      name = newTaskName
+    }
+
+    axios.post(Variables.TaskOverviewCreateTaskUrl + name)
+    .then(() => {
+      setNewTaskName("")
+      setAlert(true)
+    })
   }
 
   useEffect(() => {
-    getTasks();
+    let mounted = true;
+
+    if(tasks.length && !alert){
+      return;
+    }
+
+    getAllTasks()
+      .then(alltasks => {
+        if(mounted) {
+          setTasks(alltasks)
+        }
+      })
+      return () => mounted = false
   });
 
   return (
     <div>
       <TasksList Tasks={tasks} />
-      <NewTaskButton />
+      <form onSubmit = {postTask}>
+        <label>
+          <p>New Task</p>
+          <input type = 'text' onChange={event => setNewTaskName(event.target.value)} value = {newTaskName} />
+        </label>
+        <NewTaskButton newtaskname = {newTaskName}/>
+      </form>
     </div>
   );
 }

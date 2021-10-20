@@ -1,8 +1,11 @@
-import './NewTaskButton.css'
+import '../Css/NewTaskButton.css';
+import Button from 'react-bootstrap/Button'
 
 function NewTaskButton({newtaskname = "Default Task Name"}) {
     return (
-        <btn className = "button"> new task</btn>
+        <Button type = "submit" className = 'button'>
+            <h3 className = 'buttontext'>+</h3>
+        </Button>
     )
 }
 

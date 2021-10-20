@@ -1,5 +1,7 @@
 .row{
     margin: 0 -3px;
+    display: inline-block;
+    margin-top: 10px;
 }
 
 /* Clears floats after collums */
@@ -13,7 +15,8 @@
     float: left;
     width: 25%;
     padding: 0 10px;
-    display: table;
+    margin-bottom: 8px;
+    display: inline-table;
 }
 
 /* Column width respons to screen with */

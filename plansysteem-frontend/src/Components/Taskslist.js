@@ -1,6 +1,5 @@
 import TaskCard from "./TaskCard";
-
-import './Taskslist.css';
+import '../Css/Taskslist.css';
 
 function TasksList({ Tasks }) {
   return (
