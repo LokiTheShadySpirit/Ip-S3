@@ -8,6 +8,7 @@ namespace Plansysteem_BackEnd_LogicInterfaces
     public interface ITaskContainer
     {
         public List<TaskModel> ReadAllTasks();
+        public TaskModel ReadTask(int taskid);
         public void CreateNewTask(TaskModel newtask);
     }
 }

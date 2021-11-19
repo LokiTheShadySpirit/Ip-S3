@@ -1,11 +1,11 @@
 import '../Css/NewTaskPopup.css'
 
-function NewTaskPopup({handleClose}) {
+function NewTaskPopup({cancle}) {
     return (
-        <div className = 'popupbox'>
-            <div className = 'box'>
-                <span className = 'closeicon' onClick = {handleClose} >x</span>  
-            </div>    
+        <div className = "popupBody" onClick = {() => cancle}>
+            <h5>New Task</h5>
+            <lable>task name: </lable>
+            <input type = 'text' />
         </div>
     )
 }

@@ -4,14 +4,24 @@ import axios from "axios";
 
 import TasksList from "../Components/Taskslist";
 import NewTaskButton from "../Components/NewTaskButton";
+import NewTaskPopup from "../Components/NewTaskPopup";
 
 function TaskOverview() {
   const [tasks, setTasks] = useState([]);
+  const [getData, setGetData] = useState(true);
+
   const [newTaskName , setNewTaskName] = useState("");
-  const [alert, setAlert] = useState(false);
+  const [showNewTaskPopup, setShowNewTaskPopup] = useState(false)
+
+  const [detailedTask, setDetailedTask] = useState([]);
 
   async function getAllTasks() {
     const apirequest = await axios.get(Variables.TaskOverviewGetTasksUrl);
+    return apirequest.data;
+  }
+
+  async function getTaskDetails({taskid}){
+    const apirequest = await axios.get(Variables.TaskOverviewGetTaskDetails);
     return apirequest.data;
   }
 
@@ -26,36 +36,44 @@ function TaskOverview() {
     axios.post(Variables.TaskOverviewCreateTaskUrl + name)
     .then(() => {
       setNewTaskName("")
-      setAlert(true)
+      ToggleNewTaskPopup()
+      setGetData(true)
     })
   }
 
-  useEffect(() => {
-    let mounted = true;
-
-    if(tasks.length && !alert){
-      return;
+  async function WaitForTasks(){
+    if(getData){
+      setTasks(await getAllTasks())
+        setGetData(false)
+        console.log(`get data set to false`)
     }
+    return
+  }
 
-    getAllTasks()
-      .then(alltasks => {
-        if(mounted) {
-          setTasks(alltasks)
-        }
-      })
-      return () => mounted = false
-  });
+  function ToggleNewTaskPopup(){
+    setShowNewTaskPopup(!showNewTaskPopup)
+  }
+
+  useEffect(() => {
+    console.log(`getdata: ${getData}`)
+    WaitForTasks()
+  },[getData]);
+
+  useEffect(() =>{
+  },[showNewTaskPopup])
 
   return (
     <div>
-      <TasksList Tasks={tasks} />
-      <form onSubmit = {postTask}>
+      {tasks.lenght >= 1 ? <TasksList Tasks={tasks} /> : null}
+      {/* <form onSubmit = {postTask}>
         <label>
           <p>New Task</p>
           <input type = 'text' onChange={event => setNewTaskName(event.target.value)} value = {newTaskName} />
         </label>
-        <NewTaskButton newtaskname = {newTaskName}/>
-      </form>
+      </form> */}
+
+      <NewTaskButton onClick = {() => ToggleNewTaskPopup()} />
+      {showNewTaskPopup ?<NewTaskPopup />: null}
     </div>
   );
 }

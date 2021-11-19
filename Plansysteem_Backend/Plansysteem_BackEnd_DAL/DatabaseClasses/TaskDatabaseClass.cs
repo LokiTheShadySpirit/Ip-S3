@@ -34,7 +34,7 @@ namespace Plansysteem_BackEnd_DAL.DatabaseClasses
             using (_conn)
             {
                 _conn.Open();
-                using(MySqlCommand command = new MySqlCommand("SELECT * FROM `task`", _conn))
+                using(MySqlCommand command = new MySqlCommand("SELECT `TaskId`, `TaskName` FROM `task`", _conn))
                 {
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
@@ -51,6 +51,31 @@ namespace Plansysteem_BackEnd_DAL.DatabaseClasses
                 _conn.Close();
             }
             return allTasks;
+        }
+
+        public TaskDto ReadTask(int taskid)
+        {
+            TaskDto requestedTask = new TaskDto();
+
+            using (_conn)
+            {
+                _conn.Open();
+                using (MySqlCommand command = new MySqlCommand($"SELECT * FROM `task` WHERE TaskId = {taskid}", _conn))
+                {
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            requestedTask.TaskId = Convert.ToInt32(reader["TaskId"]);
+                            requestedTask.TaskName = Convert.ToString(reader["TaskName"]);
+                        }
+
+                    }
+                }
+                _conn.Close();
+            }
+
+            return requestedTask;
         }
     }
 }

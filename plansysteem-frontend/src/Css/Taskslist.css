@@ -1,29 +1,18 @@
-.row{
-    margin: 0 -3px;
-    display: inline-block;
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.taskCardList{
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+
+.taskCardItem{
+    margin-left: 10px;
     margin-top: 10px;
 }
 
-/* Clears floats after collums */
-.row::after{
-    content: "";
-    display: table;
-    clear: both;
-}
 
-.column{
-    float: left;
-    width: 25%;
-    padding: 0 10px;
-    margin-bottom: 8px;
-    display: inline-table;
-}
 
-/* Column width respons to screen with */
-@media screen and (max-width: 600px) {
-    .column{
-        width: 100%;
-        display: block;
-        margin-bottom: 20px;
-    }
-}
