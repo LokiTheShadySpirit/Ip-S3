@@ -11,7 +11,7 @@ function TasksList({ Tasks }) {
 
   function ShowTaskDetailPopup(selectedtask){
     console.log(selectedtask)
-    if(selectedtask != undefined){
+    if(selectedtask !== undefined){
       setDetailedTask(selectedtask)
       setShowTaskDetailPopup(true)
       return

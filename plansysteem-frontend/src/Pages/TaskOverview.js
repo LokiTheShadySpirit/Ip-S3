@@ -3,12 +3,13 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 import TasksList from "../Components/Taskslist";
-import NewTaskButton from "../Components/NewTaskButton";
 import NewTaskPopup from "../Components/NewTaskPopup";
+
+import "../Css/TaskOverview.css";
 
 function TaskOverview() {
   const [tasks, setTasks] = useState([]);
-  const [getData, setGetData] = useState(true);
+  const [alert, setAlert] = useState(true);
 
   const [newTaskName , setNewTaskName] = useState("");
   const [showNewTaskPopup, setShowNewTaskPopup] = useState(false)
@@ -37,17 +38,12 @@ function TaskOverview() {
     .then(() => {
       setNewTaskName("")
       ToggleNewTaskPopup()
-      setGetData(true)
+      setAlert(true)
     })
   }
 
-  async function WaitForTasks(){
-    if(getData){
-      setTasks(await getAllTasks())
-        setGetData(false)
-        console.log(`get data set to false`)
-    }
-    return
+  function ShowNewTaskPopup(){
+    ToggleNewTaskPopup()
   }
 
   function ToggleNewTaskPopup(){
@@ -55,25 +51,37 @@ function TaskOverview() {
   }
 
   useEffect(() => {
-    console.log(`getdata: ${getData}`)
-    WaitForTasks()
-  },[getData]);
+    let mounted = true;
+    
+    if(tasks.length >= 1 && !alert){
+      return;
+    }
 
-  useEffect(() =>{
-  },[showNewTaskPopup])
+    getAllTasks()
+      .then(alltasks => {
+        if(mounted){
+          setTasks(alltasks)
+        }
+      })
+
+      return () => mounted = false
+  });
+
+  useEffect(() => {
+  }, [showNewTaskPopup])
+
 
   return (
     <div>
-      {tasks.lenght >= 1 ? <TasksList Tasks={tasks} /> : null}
+      <TasksList Tasks={tasks} />
       {/* <form onSubmit = {postTask}>
         <label>
           <p>New Task</p>
           <input type = 'text' onChange={event => setNewTaskName(event.target.value)} value = {newTaskName} />
         </label>
       </form> */}
-
-      <NewTaskButton onClick = {() => ToggleNewTaskPopup()} />
-      {showNewTaskPopup ?<NewTaskPopup />: null}
+      <div className= "newTaskButton" onClick ={() => ShowNewTaskPopup()}> New Task</div>
+      {showNewTaskPopup ? <NewTaskPopup onClick = {() => ShowNewTaskPopup()}  />: null}
     </div>
   );
 }

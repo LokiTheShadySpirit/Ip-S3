@@ -1,34 +1,35 @@
 *{
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-.button{
+.newTaskButton{
     max-width: calc(12.5rem + 13vw);
 
     background: white;
 
     border-width: 2px;
     border-radius: 0.75em;
+    border-style: solid;
     border-color: greenyellow;
   
     padding-left: 50px;
     padding-right: 50px;
     padding-bottom: 5px;
+
+    margin-top: 10px;
+
+    text-align: center;
+    font-size: larger;
+    font-style: bold;
+    color: greenyellow;
 }
 
-.button:hover{
+.newTaskButton:hover{
     cursor: pointer;
     background: grey;
     border-color: greenyellow;
 
     transform: scale(1.05);
-}
-
-.buttontext{
-    font-size: larger;
-    font-style: bold;
-    
-    text-align: center;
-
-    color: yellowgreen;
 }
