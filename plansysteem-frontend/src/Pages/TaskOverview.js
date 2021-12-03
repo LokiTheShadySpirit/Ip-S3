@@ -26,14 +26,8 @@ function TaskOverview() {
     return apirequest.data;
   }
 
-  const postTask = (e) =>{
-    e.preventDefault();
-    let name = "Default Task Name"
-
-    if (newTaskName !== ""){
-      name = newTaskName
-    }
-
+  const postTask = (e, name) =>{
+    e.preventDefault()
     axios.post(Variables.TaskOverviewCreateTaskUrl + name)
     .then(() => {
       setNewTaskName("")
@@ -81,7 +75,7 @@ function TaskOverview() {
         </label>
       </form> */}
       <div className= "newTaskButton" onClick ={() => ShowNewTaskPopup()}> New Task</div>
-      {showNewTaskPopup ? <NewTaskPopup onClick = {() => ShowNewTaskPopup()}  />: null}
+      {showNewTaskPopup ? <NewTaskPopup onClick = {() => ShowNewTaskPopup()} submittask = {postTask}  />: null}
     </div>
   );
 }

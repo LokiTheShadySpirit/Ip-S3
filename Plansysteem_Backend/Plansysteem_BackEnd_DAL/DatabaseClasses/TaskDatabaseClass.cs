@@ -11,19 +11,19 @@ namespace Plansysteem_BackEnd_DAL.DatabaseClasses
     {
         private readonly MySqlConnection _conn = DbAcces.Conn;
 
-        public void CreateTask(TaskDto newtask)
+        public async void CreateTask(TaskDto newtask)
         {
-            using (_conn)
+            await using(_conn)
             {
                 _conn.Open();
-                using (MySqlCommand command = new MySqlCommand(
+                await using (MySqlCommand command = new MySqlCommand(
                     "INSERT INTO task (TaskName) VALUES(@TaskName)", _conn))
                 {
                     command.Parameters.AddWithValue("@TaskName", newtask.TaskName);
 
                     command.ExecuteNonQuery();
                 }
-                _conn.Close();
+                await _conn.CloseAsync();
             }
         }
 
