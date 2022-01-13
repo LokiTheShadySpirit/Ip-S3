@@ -29,6 +29,13 @@ namespace Plansysteem_BackEnd_Api.Controllers
             return new JsonResult(_taskContainer.ReadAllTasks());
         }
 
+        [Route("TaskDetails")]
+        [HttpGet]
+        public JsonResult GetTask(int taskid)
+        {
+            return new JsonResult(_taskContainer.ReadTask(taskid));
+        }
+
         [Route("NewTask")]
         [HttpPost]
         public void NewTask(string taskname)

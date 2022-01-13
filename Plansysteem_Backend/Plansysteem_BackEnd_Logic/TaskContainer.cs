@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Plansysteem_BackEnd_DalInterfaces.Dtos;
 using Plansysteem_BackEnd_DalInterfaces.Interfaces;
 using Plansysteem_BackEnd_Logic.ClassConverters;
 using Plansysteem_BackEnd_Logic.ClassFactories;
@@ -26,11 +27,19 @@ namespace Plansysteem_BackEnd_Logic
             _taskDal = taskdal;
             _allTasks = new List<Task>();
         }
+
         public List<TaskModel> ReadAllTasks()
         { 
             _allTasks = TaskConverter.ConvertTaskDtoList(_taskDal.ReadAllTasks(), _taskFactory);
 
             return TaskConverter.MakeTaskModelList(_allTasks);
+        }
+
+        public TaskModel ReadTask(int taskid)
+        {
+            TaskDto requestedTaskDto = _taskDal.ReadTask(taskid);
+            _activeTask = _taskFactory.MakeNewTask(requestedTaskDto.TaskId, requestedTaskDto.TaskName);
+            return TaskConverter.MakeTaskModel(_activeTask);
         }
 
         public void CreateNewTask(TaskModel newtask)

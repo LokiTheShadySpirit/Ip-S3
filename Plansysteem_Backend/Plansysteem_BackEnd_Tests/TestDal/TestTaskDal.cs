@@ -31,6 +31,11 @@ namespace Plansysteem_BackEnd_Tests.TestDal
             return _taskDtos;
         }
 
+        public TaskDto ReadTask(int taskid)
+        {
+            throw new NotImplementedException();
+        }
+
         public void CreateTask(TaskDto newtask)
         {
             newtask.TaskId = _nextid;
