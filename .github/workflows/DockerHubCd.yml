@@ -28,4 +28,4 @@ jobs:
         with:
           file: Plansysteem_Backend/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/Ip-S3:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/plansysteem:latest
