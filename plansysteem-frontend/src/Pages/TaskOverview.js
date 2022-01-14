@@ -11,9 +11,10 @@ function TaskOverview() {
   const [tasks, setTasks] = useState([]);
   const [alert, setAlert] = useState(true);
 
+  const[updateList, setUpdateList] = useState(true)
+
   const [newTaskName , setNewTaskName] = useState("");
   const [showNewTaskPopup, setShowNewTaskPopup] = useState(false)
-
   const [detailedTask, setDetailedTask] = useState([]);
 
   async function getAllTasks() {
@@ -25,9 +26,11 @@ function TaskOverview() {
     const apirequest = await axios.get(Variables.TaskOverviewGetTaskDetails);
     return apirequest.data;
   }
-
+ 
+  //posts a task to the database on submit of the new task form
   const postTask = (e, name) =>{
     e.preventDefault()
+    setAlert(false)
     axios.post(Variables.TaskOverviewCreateTaskUrl + name)
     .then(() => {
       setNewTaskName("")
@@ -44,6 +47,7 @@ function TaskOverview() {
     setShowNewTaskPopup(!showNewTaskPopup)
   }
 
+  //gets the tasks from the database, unless a post request is happening 
   useEffect(() => {
     let mounted = true;
     
@@ -61,6 +65,8 @@ function TaskOverview() {
       return () => mounted = false
   });
 
+
+
   useEffect(() => {
   }, [showNewTaskPopup])
 
@@ -68,12 +74,6 @@ function TaskOverview() {
   return (
     <div>
       <TasksList Tasks={tasks} />
-      {/* <form onSubmit = {postTask}>
-        <label>
-          <p>New Task</p>
-          <input type = 'text' onChange={event => setNewTaskName(event.target.value)} value = {newTaskName} />
-        </label>
-      </form> */}
       <div className= "newTaskButton" onClick ={() => ShowNewTaskPopup()}> New Task</div>
       {showNewTaskPopup ? <NewTaskPopup onClick = {() => ShowNewTaskPopup()} submittask = {postTask}  />: null}
     </div>

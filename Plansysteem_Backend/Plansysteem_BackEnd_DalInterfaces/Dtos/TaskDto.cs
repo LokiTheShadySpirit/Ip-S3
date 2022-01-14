@@ -8,5 +8,6 @@ namespace Plansysteem_BackEnd_DalInterfaces.Dtos
     {
         public int? TaskId { get; set; }
         public string TaskName { get; set; }
+        public DateTime DueDate { get; set; } 
     }
 }

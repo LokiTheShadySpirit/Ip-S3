@@ -6,6 +6,7 @@ namespace Plansysteem_BackEnd_Logic
     {
         public int? TaskId { get; private set; }
         public string TaskName { get; private set; }
+        public DateTime DueDate { get; private set; }
 
         public Task(int? taskid, string taskname)
         {

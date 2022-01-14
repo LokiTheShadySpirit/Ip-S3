@@ -34,7 +34,7 @@ namespace Plansysteem_BackEnd_DAL.DatabaseClasses
             using (_conn)
             {
                 _conn.Open();
-                using(MySqlCommand command = new MySqlCommand("SELECT `TaskId`, `TaskName` FROM `task`", _conn))
+                using(MySqlCommand command = new MySqlCommand("SELECT `TaskId`, `TaskName`, DueDate FROM `task`", _conn))
                 {
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {

@@ -27,7 +27,8 @@ namespace Plansysteem_BackEnd_Logic.ClassConverters
             return new TaskModel
             {
                 TaskId = task.TaskId,
-                TaskName = task.TaskName
+                TaskName = task.TaskName,
+                DueDate = task.DueDate
             };
         }
 
@@ -38,7 +39,8 @@ namespace Plansysteem_BackEnd_Logic.ClassConverters
                 return new TaskDto
                 {
                     TaskId = taskmodel.TaskId,
-                    TaskName = taskmodel.TaskName
+                    TaskName = taskmodel.TaskName,
+                    DueDate = taskmodel.DueDate
                 };
             }
 

@@ -4,6 +4,7 @@ function TaskDetailsPopup({task, onClick}) {
     return (
         <div className = 'detailpopup' onClick = {onClick} >
             <h5>{task.taskName}</h5>
+            <p>{task.dueDate}</p>
         </div>
     )
 }

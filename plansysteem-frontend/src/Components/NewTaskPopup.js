@@ -4,6 +4,7 @@ import {CloseButton} from 'react-bootstrap'
 function NewTaskPopup({onClick, submittask}) {
     let newTaskName = 'New Task'
 
+    //When the button is clicked this method is trigerd and send the new task to the database
     function HandleSubmit(e){
         console.log("submit")
         HandleInput(document.getElementById('input').value)
@@ -11,6 +12,7 @@ function NewTaskPopup({onClick, submittask}) {
         onClick()
     }
 
+    //Checks whether the user has typed something and sets a default name if not
     function HandleInput(value){
         if(value.length >= 1){
             newTaskName = value
