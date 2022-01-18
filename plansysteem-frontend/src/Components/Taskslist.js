@@ -4,20 +4,12 @@ import '../Css/Taskslist.css';
 
 import { useState, useEffect } from "react";
 
+import axios from "axios";
+import { Variables } from "./Variables";
+
 function TasksList({ Tasks }) {
   const [showTaskDetailPopup, setShowTaskDetailPopup] = useState(false);
   const [detailedTask, setDetailedTask] = useState(undefined);
-
-  // function ShowTaskDetailPopup(selectedtask){
-  //   console.log(selectedtask)
-  //   if(selectedtask !== undefined){
-  //     setDetailedTask(selectedtask)
-  //     setShowTaskDetailPopup(true)
-  //     return
-  //   }
-  //   setShowTaskDetailPopup(false)
-  //   return
-  // }
 
   function HoverLeave(taskId) {
     document.getElementById("editicon" + taskId).style.display = "none"
@@ -27,23 +19,26 @@ function TasksList({ Tasks }) {
     document.getElementById("editicon" + taskId).style.display = "inline"
   }
 
+  async function GetDueDate(taskid){
+    if(taskid !== undefined){
+      const apirequest =  await axios.get(Variables.GetDueDateUrl + taskid)
+      const data = apirequest.data
+      return data
+    }
 
-  
+    
+    return "not found"
+  }
+
+  function RetrieveDueDate(taskid){
+    const response = GetDueDate(taskid)
+    console.log(response)
+    return response
+  }
+
   return (
-    // <div className="taskCardList">
-    //   {Tasks.map((Task) => (
-    //     <div className="taskCardItem" key = {Task.taskId} onClick = {() => ShowTaskDetailPopup(Task)}>
-    //       <TaskCard key={Task.taskId} task={Task} />
-    //     </div>
-    //   ))}
-    // </div>
-
     <div className="background">
       <div className="page">
-        {/* <div style={{ margin: "1%" }} className="Searchbar">
-            <a style={{ fontSize: "25px" }}>🔎︎</a><input className="searchField" data-testid="searchfieldid" type="text" onChange={FilterComponentsOnChange}></input>
-              {notFound ? <label className="NoResultsLabel">No results found</label> : null}
-        </div> */}
       <table className="table">
         <thead>
             <tr id="trnoclick">
@@ -54,14 +49,16 @@ function TasksList({ Tasks }) {
         <tbody>
           {
             Tasks.map((task) => (
-              <tr onMouseEnter={() => HoverEnter(task.TaskId)} onMouseLeave={() => HoverLeave(task.TaskId)} key={task.TaskId}>
+              <tr onMouseEnter={() => HoverEnter(task.taskId)} onMouseLeave={() => HoverLeave(task.taskId)} key={task.taskId}>
                 <td>{task.taskName}</td>
-                <td>{task.dueDate != "0001-01-01T00:00:00" ? task.dueDate : "No Date Set"}</td>
+                {console.log(RetrieveDueDate(task.taskId))}
+                <td>1</td>
                 <td>
-                  <button className="btn-dark" style={{ display: "none", borderRadius: '5px' }} id={"editicon" + task.TaskId}  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                  <button className="btn-dark" style={{ display: "none", borderRadius: '5px' }} id={"editicon" + task.taskId}  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
                     Set Due Date
                   </button>
                 </td>
+                {console.log(task)}
               </tr>
             ))
           }

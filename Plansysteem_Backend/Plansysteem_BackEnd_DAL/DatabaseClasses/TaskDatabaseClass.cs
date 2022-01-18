@@ -13,7 +13,7 @@ namespace Plansysteem_BackEnd_DAL.DatabaseClasses
 
         public async void CreateTask(TaskDto newtask)
         {
-            await using(_conn)
+            await using (_conn)
             {
                 _conn.Open();
                 await using (MySqlCommand command = new MySqlCommand(
@@ -34,7 +34,7 @@ namespace Plansysteem_BackEnd_DAL.DatabaseClasses
             using (_conn)
             {
                 _conn.Open();
-                using(MySqlCommand command = new MySqlCommand("SELECT `TaskId`, `TaskName`, DueDate FROM `task`", _conn))
+                using (MySqlCommand command = new MySqlCommand("SELECT `TaskId`, `TaskName` FROM `task`", _conn))
                 {
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
@@ -43,7 +43,7 @@ namespace Plansysteem_BackEnd_DAL.DatabaseClasses
                             allTasks.Add(new TaskDto
                             {
                                 TaskId = Convert.ToInt32(reader["TaskId"]),
-                                TaskName = Convert.ToString(reader["TaskName"])
+                                TaskName = Convert.ToString(reader["TaskName"]),
                             });
                         }
                     }

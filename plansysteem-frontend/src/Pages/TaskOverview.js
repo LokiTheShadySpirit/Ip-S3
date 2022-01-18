@@ -26,6 +26,8 @@ function TaskOverview() {
     const apirequest = await axios.get(Variables.TaskOverviewGetTaskDetails);
     return apirequest.data;
   }
+
+
  
   //posts a task to the database on submit of the new task form
   const postTask = (e, name) =>{
@@ -55,14 +57,20 @@ function TaskOverview() {
       return;
     }
 
-    getAllTasks()
-      .then(alltasks => {
-        if(mounted){
-          setTasks(alltasks)
-        }
-      })
+    if(updateList){
+      getAllTasks()
+        .then(alltasks => {
+          if(mounted){
+            setTasks(alltasks)
+            setUpdateList(!updateList)
+          }
+        })
+  
+        return () => mounted = false
+    }
 
-      return () => mounted = false
+    return
+
   });
 
 
